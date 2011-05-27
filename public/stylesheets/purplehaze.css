@@ -1,0 +1,162 @@
+.topOfPage, q, h1, h2, h3, .headerTitle, .headerLinks, .headerLinks *, .sideBox div
+{ /* Text Color: */  color: #a0a0ff; }
+
+q, h2,  #header, .sideBox, .sideBox div
+{
+  border-color: #c0c0ff; 
+}
+
+#header, .sideBox div, .sideBox a:hover
+{ /* Background Color (darker): */  background-color: #f0f0ff; }
+
+q, .sideBox a, .sideBox span
+{ /* Background Color (lighter): */  background-color: #fcfcff; }
+
+
+/* ###### Body Text ###### */
+
+#bodyText {
+  line-height: 1.5em;
+  margin: 10mm 13em 0 13em;
+  padding: 0 1em 1ex 1em;
+  height:auto;
+  background:#F0F0FF;
+}
+
+#introduction
+{
+  padding-top:13px;
+}
+
+.round
+{
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+}
+
+#bodyText p {
+  padding-bottom: 2ex;
+}
+
+.topOfPage {
+  font-size: 90%;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: none;
+  padding-left: 1ex;
+  padding-right: 1ex;
+  float: right;
+}
+
+.smallCaps {
+  font-variant: small-caps;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: verdana, tahoma, helvetica, arial, sans-serif;
+  font-size: 95%;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "trebuchet ms", tahoma, sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 150%;
+  border-bottom: 1px solid;
+  padding-bottom: 0.5ex;
+}
+
+acronym {
+  background-color: inherit;
+  color: teal;
+  border-bottom: 1px dashed teal;
+  cursor: help;
+}
+
+code {
+  font-family: "lucida console", monospace;
+  font-size: 90%;
+}
+
+img {
+  border: 0;
+}
+
+q {
+  font-family: tahoma, verdana, helvetica, arial, sans-serif;
+  font-weight: bold;
+  border: 2px dotted;
+  margin: 0 1em 1ex 1em;
+  padding: 0.5ex 0.5ex 0.5ex 1ex;
+  width: 9em;
+  float: left;
+}
+
+
+/* ###### Header ###### */
+
+.tweet_img
+{
+  margin-left:10px;
+  margin-right:20px;
+  
+}
+
+#header {
+  border-bottom: 3px solid;
+  height: 6em;
+  margin-bottom: 5mm;
+  padding: 1em 2.5mm 0 5mm;
+}
+
+.headerTitle {
+  font-size: 300%;
+  
+}
+
+.headerLinks {
+  text-align: right;
+
+
+}
+
+.headerLinks * {
+  text-decoration: none;
+  font-weight: bold;
+  padding-right: 2.5ex;
+  
+}
+
+.headerLinks a:hover {
+  text-decoration: underline;
+
+  
+}
+
+
+
+
+/* ###### Footer ###### */
+.footer
+{
+    border-top: 1px solid;    
+    margin-top:50px;
+    background:#F0F0FF;
+
+}
+
+.content
+{
+    font-weight: bold;
+    margin-right:auto;
+    margin-left:auto;
+    width:250px;   
+    padding-top:5px;
+
+}
