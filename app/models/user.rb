@@ -13,9 +13,13 @@
 class User < ActiveRecord::Base
   
     attr_accessible :name,:email
+    match_regex= //;
     
-    validates :name, :presence => true
-    validates :email,:presence => true
-     
-  
+    validates :name, :presence => true,
+                     :length => {:maximum => 32}
+                     
+    validates :email,:presence   => true,
+                     :uniqueness => {:case_sensitive => false},
+                     :format     => {:with => match_regex} 
+                     
 end
