@@ -7,7 +7,8 @@
 
 <%= image_tag("tweet_side.png") %>
 
-<div id="signup_form">
+  <!-- Sign up form start -->
+  <div id="signup_form">
   <%= form_for(@user) do |f| %> 
   
   <div class="field">
@@ -44,10 +45,11 @@
     <%= f.submit "Sign up",:id=>"buttons"%>
     
   </div>
+
+  </div>
   
-  
-  
-</div>
+  <!-- Sign up form end -->
+
   <% end %>
   
 
