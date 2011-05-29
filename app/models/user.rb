@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110528123107
+# Schema version: 20110529145728
 #
 # Table name: users
 #
@@ -9,12 +9,15 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
 class User < ActiveRecord::Base
   
     attr_accessible :name,:email,:password,:password_confirmation
     attr_accessor :password
+    
+
     
     match_regex= /[\w.-]+@[a-z.-]+\.[a-z]+/i;
     
@@ -31,15 +34,34 @@ class User < ActiveRecord::Base
     
     before_save :encrypt_password
     
+    class << self
+      def authenticate(email,submitted_password)
+        user=find_by_email(email)
+        return nil if user.nil?
+        return user if user.has_password?(submitted_password)
+      end
+    end
+    
+    def has_password?(submitted_password)
+      self.encrypted_password == encrypt(submitted_password)
+    end
+    
     private
           
       def encrypt_password
-        self.encrypted_password=encrypt(password)    #We put self,as ruby interprets it as a local var if there is no self 
+        self.salt = make_salt if new_record?  
+        self.encrypted_password=encrypt(password)    
       end                  
       
-      def encrypt(string)
+      def make_salt
+        secure_hash("#{Time.now.utc}--#{password}")     
       end
       
-         
-                     
+      def encrypt(string)
+        secure_hash("#{salt}--#{string}")
+      end
+        
+      def secure_hash(string)
+        Digest::SHA2.hexdigest(string)
+      end
 end
