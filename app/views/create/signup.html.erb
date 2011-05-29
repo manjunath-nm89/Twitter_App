@@ -6,3 +6,50 @@
 </p>
 
 <%= image_tag("tweet_side.png") %>
+
+<div id="signup_form">
+  <%= form_for(@user) do |f| %> 
+  
+  <div class="field">
+  
+    <%= f.label :name%> <br/>
+    <%= f.text_field :name,:class=>"textbox",:size=>40 %>
+    
+  </div>
+  
+  <div class="field">
+  
+    <%= f.label :email %> <br/>
+    <%= f.text_field :email,:class=>"textbox",:size=>40  %>
+    
+  </div>
+  
+  <div class="field">
+  
+    <%= f.label :password %> <br/>
+    <%= f.password_field :password,:class=>"textbox",:size=>40  %>
+    
+  </div>
+  
+  <div class="field">
+  
+    <%= f.label :password_confirmation %> <br/>
+    <%= f.password_field :password_confirmation,:class=>"textbox",:size=>40  %>
+    
+  </div>
+
+  
+  <div class="field">
+  
+    <%= f.submit "Sign up",:id=>"buttons"%>
+    
+  </div>
+  
+  
+  
+</div>
+  <% end %>
+  
+
+
+
