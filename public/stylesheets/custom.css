@@ -214,4 +214,15 @@ div.field
     color:#8F0000;
 }
 
+/* Main post Layout */
+
+.post_content
+{
+    margin-left:10px;
+    padding-top:30px;
+    margin-right: 10px;
+    
+
+}
+
 
