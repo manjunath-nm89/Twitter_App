@@ -19,7 +19,7 @@ q, .sideBox a, .sideBox span
   line-height: 1.5em;
   margin: 10mm 13em 0 13em;
   padding: 0 1em 1ex 1em;
-  height:auto;
+  height:500px;
   background:#F0F0FF;
 }
 
@@ -203,5 +203,9 @@ div.field
 
 }
 
+.errors_display
+{
+    color:#8F0000;
+}
 
 

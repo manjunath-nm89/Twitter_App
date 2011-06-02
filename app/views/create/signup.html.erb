@@ -13,21 +13,33 @@
   
   <div class="field">
   
-    <%= f.label :name%> <br/>
+    <%= f.label :name%>
+    <% if @user.errors[:name].any? %>
+    <span class="errors_display"><%= @user.errors[:name]  %></span>
+    <% end  %>
+    <br/>
     <%= f.text_field :name,:class=>"textbox",:size=>40 %>
     
   </div>
   
   <div class="field">
   
-    <%= f.label :email %> <br/>
+    <%= f.label :email %> 
+     <% if @user.errors[:email].any? %>
+    <span class="errors_display"><%= @user.errors[:email]  %></span>
+    <% end  %>
+    <br/>
     <%= f.text_field :email,:class=>"textbox",:size=>40  %>
     
   </div>
   
   <div class="field">
   
-    <%= f.label :password %> <br/>
+    <%= f.label :password %>
+     <% if @user.errors[:password].any? %>
+    <span class="errors_display"><%= @user.errors[:password]  %></span>
+    <% end  %>
+    <br/>
     <%= f.password_field :password,:class=>"textbox",:size=>40  %>
     
   </div>
@@ -45,12 +57,13 @@
     <%= f.submit "Sign up",:id=>"buttons"%>
     
   </div>
+    <% end %>
 
   </div>
   
   <!-- Sign up form end -->
 
-  <% end %>
+  
   
 
 
