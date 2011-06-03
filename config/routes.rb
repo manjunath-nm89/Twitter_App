@@ -5,7 +5,7 @@ SignupApp::Application.routes.draw do
 
   match "/welcome", :to => "create#welcome"
   match "/signin",  :to => "sessions#new"
-  match "/signout", :to => "session#destroy"
+  match "/signout", :to => "sessions#destroy"
   
   root :to => "users#new"
 

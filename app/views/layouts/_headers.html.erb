@@ -7,8 +7,16 @@
 
    <span class="headerTitle">Welcome to Twitter!</span>
       <div class="headerLinks">
-        <%= link_to "Home", "/" %>|
-        <%= link_to "Sign In", "#" %>
+        <% if signed_in? %>
+          <%= link_to "Profile", current_user %>|
+        <%else%>
+          <%= link_to "Home", root_path %>|
+        <%end%>
+        <% if signed_in? %>
+          <%= link_to "Sign out", signout_path %>
+        <%else%>
+          <%= link_to "Sign in", signin_path %>
+        <%end%>
 
       </div>
 </div>
