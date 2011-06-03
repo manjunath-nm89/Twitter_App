@@ -221,8 +221,27 @@ div.field
     margin-left:10px;
     padding-top:30px;
     margin-right: 10px;
+    height:100px;
     
 
+}
+
+.set_middle
+{
+    vertical-align:middle;
+}
+
+.signuplinks
+{
+  text-decoration: none;
+  font-weight: bold;
+  padding-right: 2.5ex;
+
+}
+
+.signuplinks a:hover
+{
+  text-decoration: underline;
 }
 
 

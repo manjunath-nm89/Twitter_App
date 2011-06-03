@@ -1,0 +1,52 @@
+
+<h1 id="introduction">Follow your interests</h1>
+
+<p>
+  Hi Everybody and welcome to my own version of twitter :) . Get instant updates from your friends, industry experts,    favorite celebrities, and what’s happening around the world.
+</p>
+
+<%= image_tag("tweet_side.png") %>
+
+  <!-- Sign up form start -->
+  <div id="signup_form">
+  <%= form_for(:session,:url => sessions_path) do |f| %>
+
+  <div class="field">
+
+    <%= f.label :email%><br/>
+    <%= f.text_field :email,:class=>"textbox",:size=>40 %>
+
+  </div>
+
+  
+  <div class="field">
+
+    <%= f.label :password %><br/>
+    <%= f.password_field :password,:class=>"textbox",:size=>40  %>
+
+  </div>
+
+  
+  <div class="field">
+
+    <%= f.submit "SIGN IN",:id=>"buttons"%>
+
+  </div>
+    
+  <% flash.each do |key,value| %>
+     <div style="color:#FF0000;font-size: 16px;"><%= value %></div>
+  <%end%>
+     
+  <% end %>
+
+    <span>New User..<%= link_to "Signup Now",root_path,:class=>"signuplinks" %></span>
+
+  </div>
+
+  <!-- Sign up form end -->
+
+
+
+
+
+
