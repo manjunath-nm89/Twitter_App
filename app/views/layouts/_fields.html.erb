@@ -1,0 +1,46 @@
+<%= image_tag("tweet_side.png") %>
+
+  <!-- Sign up form start -->
+  
+  <%= form_for(@user) do |f| %>
+
+  <div class="field">
+
+    <%= f.label :name%>
+    <% if @user.errors[:name].any? %>
+    <span class="errors_display"><%= @user.errors[:name]  %></span>
+    <% end  %>
+    <br/>
+    <%= f.text_field :name,:class=>"textbox",:size=>40 %>
+
+  </div>
+
+  <div class="field">
+
+    <%= f.label :email %>
+     <% if @user.errors[:email].any? %>
+    <span class="errors_display"><%= @user.errors[:email]  %></span>
+    <% end  %>
+    <br/>
+    <%= f.text_field :email,:class=>"textbox",:size=>40  %>
+
+  </div>
+
+  <div class="field">
+
+    <%= f.label :password %>
+     <% if @user.errors[:password].any? %>
+    <span class="errors_display"><%= @user.errors[:password]  %></span>
+    <% end  %>
+    <br/>
+    <%= f.password_field :password,:class=>"textbox",:size=>40  %>
+
+  </div>
+
+  <div class="field">
+
+    <%= f.label :password_confirmation %> <br/>
+    <%= f.password_field :password_confirmation,:class=>"textbox",:size=>40  %>
+
+  </div>
+

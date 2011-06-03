@@ -5,10 +5,17 @@
 <div id="header">
    <%= image_tag("tweet.png", :alt => "Sample App", :width => 50, :height => 45,:class => "tweet_img") %>
 
-   <span class="headerTitle">Welcome to Twitter!</span>
+  <% if signed_in? %>
+    <span class="headerTitle">Twitter !</span>
+  <%else%>
+    <span class="headerTitle">Welcome to Twitter!</span>
+  <%end%>
+    
+   
       <div class="headerLinks">
         <% if signed_in? %>
           <%= link_to "Profile", current_user %>|
+          <%= link_to "Settings", edit_user_path(current_user) %>|
         <%else%>
           <%= link_to "Home", root_path %>|
         <%end%>

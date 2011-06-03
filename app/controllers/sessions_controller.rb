@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @title="Sign In"
     user=User.authenticate(params[:session][:email],
                            params[:session][:password])
     if user.nil?
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    @title="Sign out"
     sign_out
     redirect_to root_path
   end
