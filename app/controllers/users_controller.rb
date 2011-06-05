@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate,:only=>[:edit,:update]
+  before_filter :check_user,:only=>[:edit,:update]  
 
   def new
     @title = "Signup"
@@ -40,7 +41,13 @@ class UsersController < ApplicationController
   private
   
     def authenticate
+      session[:return_back]=request.fullpath
       redirect_to signin_path unless signed_in?
+    end
+    
+    def check_user
+      @user=User.find_by_id(params[:id])   
+      redirect_to current_user unless @user == current_user
     end
   
 end

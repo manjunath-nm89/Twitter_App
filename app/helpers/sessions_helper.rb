@@ -21,6 +21,12 @@ module SessionsHelper
     cookies.delete(:remember_token)
     self.current_user = nil
   end
+  
+  def redirect_back_or(default)
+    redirect_to(session[:return_back] || default)
+    session[:return_back] = nil
+  end
+  
 
   private
 
