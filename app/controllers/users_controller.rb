@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate,:only=>[:edit,:update]
+
   def new
     @title = "Signup"
     @user=User.new
@@ -24,5 +26,21 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @title="Edit Profile"
   end
+  
+  def update
+    @user=User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_to user_path(@user)
+    else
+      @title="Edit Profile"
+      render "edit"
+    end
+  end
+  
+  private
+  
+    def authenticate
+      redirect_to signin_path unless signed_in?
+    end
   
 end
