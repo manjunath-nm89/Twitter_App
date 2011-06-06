@@ -25,7 +25,7 @@ q, .sideBox a, .sideBox span
   line-height: 1.5em;
   margin: 10mm 13em 0 13em;
   padding: 0 1em 1ex 1em;
-  height:500px;
+  height:570px;
   background:#F0F0FF;
 }
 
@@ -196,6 +196,20 @@ div.field
 
 }
 
+#tweetbutton
+{
+  background-color: #a0a0ff;
+  color:#FFFFFF;
+  font-size:16px;
+  font-weight:800;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  width: 15%
+
+}
+
 .textbox
 {
   
@@ -243,5 +257,23 @@ div.field
 {
   text-decoration: underline;
 }
+
+.timestamp
+{
+    padding-top: 10px;
+    color: #666;
+}
+.micro-content
+{
+    padding-top: 10px;
+}
+
+.micropost
+{
+    padding-left: 32px;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+
 
 

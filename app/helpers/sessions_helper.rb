@@ -18,17 +18,23 @@ module SessionsHelper
   end
 
   def sign_out
+    session[:return_back] = nil
     cookies.delete(:remember_token)
     self.current_user = nil
   end
   
   def redirect_back_or(default)
     redirect_to(session[:return_back] || default)
-    session[:return_back] = nil
+    
   end
   
 
   private
+
+    def authenticate
+      session[:return_back]=request.fullpath
+      redirect_to signin_path unless signed_in?
+    end
 
     def user_from_remember_token
       User.authenticate_with_salt(*remember_token)

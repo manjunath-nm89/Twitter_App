@@ -6,12 +6,13 @@ class UsersController < ApplicationController
 
   def index
     @title="Users"
-    @users=User.paginate(:page=>params[:page])
+    @users=User.paginate(:page=>params[:page],:per_page=>6)
   end  
   
   def new
     @title = "Signup"
     @user=User.new
+    redirect_to current_user if signed_in?
   end
 
   def create
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
+    @microposts=@user.microposts.paginate(:page=>params[:page],:per_page=>4)
     @title="#{@user.name}"
   end
 
@@ -46,7 +48,6 @@ class UsersController < ApplicationController
 
   def destroy
     destroy_user=User.find(params[:id])
-    
      if !destroy_user.admin? && destroy_user.destroy
        redirect_to users_path,:flash=>{:success=>"User successfully Deleted !!"}
      else
@@ -57,10 +58,7 @@ class UsersController < ApplicationController
   
   private
   
-    def authenticate
-      session[:return_back]=request.fullpath
-      redirect_to signin_path unless signed_in?
-    end
+    
     
     def check_user
       @user=User.find_by_id(params[:id])   

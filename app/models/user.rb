@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   
     attr_accessible :name,:email,:password,:password_confirmation
     attr_accessor :password
+    has_many :microposts, :dependent => :destroy
     
 
     
@@ -34,9 +35,6 @@ class User < ActiveRecord::Base
     
     before_save :encrypt_password
     
-    def self.per_page
-      5
-    end
     
     class << self
       def authenticate(email,submitted_password)
@@ -53,6 +51,10 @@ class User < ActiveRecord::Base
     
     def has_password?(submitted_password)
       self.encrypted_password == encrypt(submitted_password)
+    end
+
+    def feed
+      Micropost.where("user_id = ?",id)
     end
     
     private
