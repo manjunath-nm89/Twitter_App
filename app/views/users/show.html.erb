@@ -8,7 +8,7 @@
  
 
   <%if @user.microposts.any? %>
-  <span style="float:right;color:#a0a0ff;font-size: 24px">Microposts: <%= @user.microposts.count   %></span>
+  <span style="float:right;color:#a0a0ff;font-size: 24px">Tweets: <%= @user.microposts.count   %></span>
   <br/><br/>
   <table class="microposts" summary="Microposts Table">
     <%= render @microposts %>
