@@ -46,7 +46,6 @@ class UsersController < ApplicationController
 
   def destroy
     destroy_user=User.find(params[:id])
-    
      if !destroy_user.admin? && destroy_user.destroy
        redirect_to users_path,:flash=>{:success=>"User successfully Deleted !!"}
      else
