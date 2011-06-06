@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate,:only => [:index,:edit,:update]
-  before_filter :check_user,:only   => [:edit,:update]  
+  before_filter :authenticate,:only   => [:index,:edit,:update]
+  before_filter :check_user,  :only   => [:edit,:update]
+  before_filter :admin_user,  :only   => [:destroy]
 
   def index
     @title="Users"
@@ -42,6 +43,17 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    destroy_user=User.find(params[:id])
+    
+     if !destroy_user.admin? && destroy_user.destroy
+       redirect_to users_path,:flash=>{:success=>"User successfully Deleted !!"}
+     else
+       redirect_to users_path,:flash=>{:error=>"Unable to destroy user"}
+     end
+    
+  end
   
   private
   
@@ -53,6 +65,10 @@ class UsersController < ApplicationController
     def check_user
       @user=User.find_by_id(params[:id])   
       redirect_to current_user unless @user == current_user
+    end
+
+    def admin_user
+      redirect_to current_user unless current_user.admin?
     end
   
 end

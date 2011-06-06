@@ -1,4 +1,9 @@
+<%flash.each do |key,value|%>
+<span style="color:#FF0000;font-size: 16px;"><%= value %></span>
+<%end%>
 <h1 id="introduction">Twitter Users</h1>
+
+
 
 <p>
   Twitter has a wide array of people from all aspects of life !!
@@ -15,6 +20,14 @@
     <span style="font-size:20px;color:#a0a0ff;padding-left:10px">
       <%= link_to user.name, user  %> 
     </span>
+
+    <%if current_user.admin? && current_user != user  %>
+
+    |<span style="font-size:20px;color:#a0a0ff;padding-left:10px">
+      <%= link_to "Delete", user, :method=>:delete,:confirm=>"You Sure ?",:title=>"Delete #{user.name}"%>
+    </span>
+      
+    <%end%>
 
     </div>
   <% end %>
