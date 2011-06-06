@@ -30,6 +30,11 @@ module SessionsHelper
 
   private
 
+    def authenticate
+      session[:return_back]=request.fullpath
+      redirect_to signin_path unless signed_in?
+    end
+
     def user_from_remember_token
       User.authenticate_with_salt(*remember_token)
     end

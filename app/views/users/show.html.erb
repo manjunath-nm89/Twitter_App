@@ -1,7 +1,12 @@
+ <% flash.each do |key,value| %>
+     <div style="color:#0000FF;font-size: 16px;"><%= value %></div>
+  <%end%>
 <div class="post_content">
   <%= image_tag "gravatar.jpg",:height=>100,:width=>100,:class=>"set_middle" %>
   <span style="font-size: 32px;padding-left: 10px;color:#a0a0ff;"><%=@user.name%></span>
   
+ 
+
   <%if @user.microposts.any? %>
   <span style="float:right;color:#a0a0ff;font-size: 24px">Microposts: <%= @user.microposts.count   %></span>
   <br/><br/>

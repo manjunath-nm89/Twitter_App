@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def new
     @title = "Signup"
     @user=User.new
+    redirect_to current_user if signed_in?
   end
 
   def create
@@ -57,10 +58,7 @@ class UsersController < ApplicationController
   
   private
   
-    def authenticate
-      session[:return_back]=request.fullpath
-      redirect_to signin_path unless signed_in?
-    end
+    
     
     def check_user
       @user=User.find_by_id(params[:id])   
