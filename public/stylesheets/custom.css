@@ -244,4 +244,22 @@ div.field
   text-decoration: underline;
 }
 
+.timestamp
+{
+    padding-top: 10px;
+    color: #666;
+}
+.micro-content
+{
+    padding-top: 10px;
+}
+
+.micropost
+{
+    padding-left: 32px;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+
+
 

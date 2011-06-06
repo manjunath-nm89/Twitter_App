@@ -35,10 +35,10 @@ class User < ActiveRecord::Base
     
     before_save :encrypt_password
     
-    def self.per_page
-      5
-    end
     
+    
+
+
     class << self
       def authenticate(email,submitted_password)
         user=find_by_email(email)
