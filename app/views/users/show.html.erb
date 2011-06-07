@@ -3,12 +3,17 @@
   <%end%>
 <div class="post_content">
   <%= image_tag "gravatar.jpg",:height=>100,:width=>100,:class=>"set_middle" %>
-  <span style="font-size: 32px;padding-left: 10px;color:#a0a0ff;"><%=@user.name%></span>
+  <span style="font-size: 32px;padding-left: 10px;color:#a0a0ff;">
+    <%=@user.name%> <%= render "layouts/follow_form" if current_user %>
+    
+  </span>
+  
   
  
 
+  
+  <%=  render "layouts/stats"%>
   <%if @user.microposts.any? %>
-  <span style="float:right;color:#a0a0ff;font-size: 24px">Tweets: <%= @user.microposts.count   %></span>
   <br/><br/>
   <table class="microposts" summary="Microposts Table">
     <%= render @microposts %>
