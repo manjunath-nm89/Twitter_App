@@ -1,0 +1,25 @@
+<%= will_paginate @users %>
+
+<ul class= "users">
+  <% @users.each do |user| %>
+
+    <div style="padding-top:10px;">
+    <%= image_tag "gravatar.jpg",:height=>50,:width=>50,:class=>"set_middle" %>
+
+    <span style="font-size:20px;color:#a0a0ff;padding-left:10px">
+      <%= link_to user.name, user  %>
+    </span>
+
+    <%if current_user.admin? && current_user != user  %>
+
+    |<span style="font-size:20px;color:#a0a0ff;padding-left:10px">
+      <%= link_to "Delete", user, :method=>:delete,:confirm=>"You Sure ?",:title=>"Delete #{user.name}"%>
+    </span>
+
+    <%end%>
+    
+    </div>
+  <% end %>
+</ul>
+
+<%= will_paginate @users %>
