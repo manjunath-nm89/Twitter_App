@@ -3,10 +3,10 @@
       Tweets: <%= @user.microposts.count   %>
       <table summary="Followers-Folowing" style="color:#a0a0ff;font-size: 16px;padding-top: 10px;" cellpadding="0" cellspacing="5" >
       <tr>
-        <td>
+        <td id="stats_following">
           <%= link_to "#{@user.following.count}",following_user_path(@user),:title=>"Following" %>
         </td>
-        <td>
+        <td id="stats_followers">
           <%= link_to "#{@user.followers.count}",followers_user_path(@user),:title=>"Followers" %>
         </td>
       </tr>
