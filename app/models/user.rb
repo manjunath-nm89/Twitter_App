@@ -16,9 +16,20 @@ class User < ActiveRecord::Base
   
     attr_accessible :name,:email,:password,:password_confirmation
     attr_accessor :password
-    has_many :microposts, :dependent => :destroy
+    has_many :microposts,    :dependent => :destroy
     
+    has_many :relationships, :dependent => :destroy,
+                             :foreign_key => "follower_id"
 
+    has_many :reverse_relationships, :dependent => :destroy,
+                                     :foreign_key => "followed_id",
+                                     :class_name => "Relationship"
+
+    has_many :following, :through => :relationships,
+                         :source => :followed
+    
+    has_many :followers, :through => :reverse_relationships,
+                         :source => :follower
     
     match_regex= /[\w.-]+@[a-z.-]+\.[a-z]+/i;
     
@@ -48,13 +59,26 @@ class User < ActiveRecord::Base
         (user && user.salt == cookie_salt) ? user:nil
       end
     end
-    
+
     def has_password?(submitted_password)
       self.encrypted_password == encrypt(submitted_password)
     end
 
     def feed
-      Micropost.where("user_id = ?",id)
+      #Micropost.where("user_id = ?",id)
+      Micropost.from_users_followed_by(self)
+    end
+
+    def following?(followed)
+      relationships.find_by_followed_id(followed)
+    end
+
+    def follow!(followed)
+      relationships.create!(:followed_id => followed.id)
+    end
+
+    def unfollow!(followed)
+      relationships.find_by_followed_id(followed).destroy
     end
     
     private

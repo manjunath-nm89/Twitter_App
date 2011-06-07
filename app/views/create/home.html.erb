@@ -7,9 +7,15 @@
 </p>
 
 <%= form_for(@micropost) do |f|  %>
-<div><%= f.text_area :content,:cols=>50,:rows=>7%></div>
+
+<div>
+  <%= f.text_area :content,:cols=>50,:rows=>7%>
+  <%=  render "layouts/stats"%>
+  
+</div>
 
   <%=  f.submit "Post Tweet",:id=>"tweetbutton" %>
+
 <%end%>
 
 <br/>
