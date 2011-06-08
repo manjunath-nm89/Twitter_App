@@ -8,9 +8,9 @@
 
 
 
-<%=  params[:parent_id] %>
-<%= form_for(@newmicro) do |f|  %>
-<%= f.hidden_field :parent_id %>
+<%=  @micropost.parent_id %>
+<%= form_for(@micropost) do |f|  %>
+<%= f.hidden_field :parent_id%>
 <div>
   <%= f.text_area :content,:cols=>75,:rows=>7%>
 

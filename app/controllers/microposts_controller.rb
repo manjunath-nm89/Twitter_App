@@ -6,6 +6,7 @@ class MicropostsController < ApplicationController
   def create
     
     @title="Tweets"
+    #raise params.inspect
     @micropost=current_user.microposts.build(params[:micropost])
     if @micropost.save
       redirect_to statuspost_path,:flash=>{:success=>"Tweet successfully posted !!"}
@@ -20,8 +21,10 @@ class MicropostsController < ApplicationController
   end
 
   def new
+    #raise params.inspect
     @title="Comment"
-    @newmicro=current_user.microposts.new(:parent_id => params[:parent_id])
+    @micropost=current_user.microposts.new(:parent_id => params[:parent_id])
+    #raise @micropost.parent_id
   end
 
   private
