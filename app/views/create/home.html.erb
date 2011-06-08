@@ -9,10 +9,11 @@
 <%= form_for(@micropost) do |f|  %>
 
 <div>
-  <%= f.text_area :content,:cols=>50,:rows=>7%>
-  <%=  render "layouts/stats"%>
-  
+  <%= f.text_area :content,:cols=>75,:rows=>7%>
+ 
 </div>
+
+ <%=  render "layouts/stats"%>
 
   <%=  f.submit "Post Tweet",:id=>"tweetbutton" %>
 

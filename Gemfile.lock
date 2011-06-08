@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    ancestry (1.2.0)
+      activerecord (>= 2.1.0)
     annotate-models (1.0.4)
     arel (2.0.10)
     builder (2.1.2)
@@ -74,6 +76,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   annotate-models (= 1.0.4)
   faker (= 0.3.1)
   rails (= 3.0.3)

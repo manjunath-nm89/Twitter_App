@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @title="Signup"
     @user=User.new(params[:user])
     if @user.save
+      sign_in @user
       redirect_to @user
     else
       render "new"
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @microposts=@user.microposts.paginate(:page=>params[:page],:per_page=>4)
     @title="#{@user.name}"
+    session[:deletion_path]=nil
   end
 
   def edit

@@ -1,15 +1,18 @@
 class Micropost < ActiveRecord::Base
+  has_ancestry
   
   attr_accessible :content
   belongs_to :user
 
   default_scope :order => "microposts.created_at DESC"
 
-  validates :content, :presence => true,
-                      :length   => {:maximum => 140 }
+  validates :content, :presence => true
+
+  
+                      
 
   validates :user_id, :presence => true
-
+  
   def self.from_users_followed_by(user)
     #followed_ids = user.following.map(&:id).join(", ")
     user_ids = user.following.map(&:id)

@@ -4,18 +4,24 @@ class MicropostsController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def create
+    
     @title="Tweets"
     @micropost=current_user.microposts.build(params[:micropost])
     if @micropost.save
       redirect_to statuspost_path,:flash=>{:success=>"Tweet successfully posted !!"}
     else
-      redirect_to statuspost_path,:flash=>{:error=>"Tweet Post Failed !!! Restrict Tweet Post length between 1 .. 140 characters"}
+      redirect_to statuspost_path,:flash=>{:error=>"Tweet Post Failed !!! Post cannot be blank"}
     end
   end
 
   def destroy
     @micropost.destroy
-    redirect_to @micropost.user,:flash=>{:success=>"Tweet Deleted"}
+    redirect_to session[:deletion_path]||@micropost.user,:flash=>{:success=>"Tweet Deleted"}
+  end
+
+  def new
+    @title="Comment"
+    @newmicro=current_user.microposts.new(:parent_id => params[:parent_id])
   end
 
   private

@@ -8,7 +8,7 @@ SignupApp::Application.routes.draw do
   end
 
   resources :sessions,      :only => [:new,:create,:destroy]
-  resources :microposts,    :only => [:create,:destroy]
+  resources :microposts,    :only => [:create,:destroy,:new]
   resources :relationships, :only => [:create,:destroy]
 
   match "/welcome",     :to => "create#welcome"

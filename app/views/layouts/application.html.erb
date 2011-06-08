@@ -2,10 +2,27 @@
 <html>
   <head>
     <%= stylesheet_link_tag "custom" %>
+
     <title><%= title %></title>
+    
     <%= csrf_meta_tag %>
     <%= javascript_include_tag :defaults %>
-</head>
+    <%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
+    <%= javascript_include_tag "scriptaculous.js" %>
+
+    <script type="text/javascript" >
+         tinyMCE.init({
+         mode : "textareas",
+         force_br_newlines : true,
+         force_p_newlines : false,
+         forced_root_block : false,
+         theme : "simple"   //(n.b. no trailing comma, this will be critical as you experiment later)
+         });
+    </script>
+
+
+    
+ </head>
 
   <body>
     <%= render "layouts/headers" %>
@@ -18,6 +35,6 @@
     
       <%= render "layouts/footers" %>
       
-      <%= debug(params) if Rails.env.development? %>
+     <!-- <%= debug(params) if Rails.env.development? %> -->
   </body>
 </html>
