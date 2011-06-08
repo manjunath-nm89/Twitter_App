@@ -1,0 +1,19 @@
+ <div>
+    <%= image_tag "gravatar.jpg",:height=>50,:width=>50,:class=>"set_middle" %>
+    <span style="font-size: 16px;padding-left: 10px;color:#a0a0ff;"><%=link_to f.object.user.name,f.object.user,:target=>"_blank"%></span>  -  <%= raw f.object.content %>
+    <span style="float:right">
+      <%if f.object.user == current_user%>
+      <%=  link_to "Comment", new_micropost_path(:parent_id=>f.id) %> | <%= link_to "Delete",f,:method=>:delete,:confirm=>"Are you Sure?",:title=>raw(f.object.content) %>
+      <%end%>
+    </span>
+  </div>
+
+    <div class="timestamp">
+      Posted <%= time_ago_in_words(f.created_at)   %> ago.
+    </div>
+
+
+    <hr/>
+
+
+<br/>

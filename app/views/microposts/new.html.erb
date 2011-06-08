@@ -1,0 +1,25 @@
+<% flash.each do |key,value| %>
+     <div style="color:#FF0000;font-size: 16px;"><%= value %></div>
+<%end%>
+<h1 id="introduction">Tweet Comments</h1>
+<p>
+  Comment on Tweets
+</p>
+
+
+
+<%=  params[:parent_id] %>
+<%= form_for(@newmicro) do |f|  %>
+<%= f.hidden_field :parent_id %>
+<div>
+  <%= f.text_area :content,:cols=>75,:rows=>7%>
+
+</div>
+
+ <%=  render "layouts/stats"%>
+
+  <%=  f.submit "Post Tweet",:id=>"tweetbutton" %>
+
+<%end%>
+
+<br/>
