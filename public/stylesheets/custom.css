@@ -285,7 +285,7 @@ div.field
 .micropost
 {
     padding-left: 32px;
-    padding-top: 20px;
+    padding-top: 28px;
     margin-left: 10px;
 }
 
@@ -300,6 +300,11 @@ div.field
   padding-bottom: 3px;
   padding-top: 3px;
   width: 8%
+}
+
+.nested_messages
+{
+  padding-left: 30px;
 }
 
 

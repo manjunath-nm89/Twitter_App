@@ -15,12 +15,10 @@
   <%if @user.microposts.any? %>
   <br/><br/>
   <table class="microposts" summary="Microposts Table">
-    <%= render @microposts %>
+    <%= nested_posts @microposts.arrange(:order => :created_at) %>
   </table>
   
   <br/>
-  <%= will_paginate @microposts %>
+  <%#= will_paginate @microposts %>
   <%end%>
-  
-
 </div>

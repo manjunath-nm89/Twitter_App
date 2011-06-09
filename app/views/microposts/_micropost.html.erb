@@ -1,10 +1,10 @@
   <div class="micropost">
     <span class="micro-content">
-      <%= micropost.content %>
+      <%= raw micropost.content %>
     </span>
     <span style="float:right">
       <%if micropost.user == current_user%>
-      <%= link_to "Delete",micropost,:method=>:delete,:confirm=>"Are you Sure?",:title=>micropost.content %>
+      <%=  link_to "Comment", new_micropost_path(:parent_id=>micropost.id) %> <%=link_to "Delete",micropost,:method=>:delete,:confirm=>"Are you Sure?",:title=>raw(micropost.content) %>
       <%end%>
     </span>
     <div class="timestamp">

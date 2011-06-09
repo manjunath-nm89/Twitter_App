@@ -4,7 +4,6 @@ class MicropostsController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def create
-    
     @title="Tweets"
     #raise params.inspect
     @micropost=current_user.microposts.build(params[:micropost])

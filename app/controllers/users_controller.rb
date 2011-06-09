@@ -28,7 +28,8 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
-    @microposts=@user.microposts.paginate(:page=>params[:page],:per_page=>4)
+    #@microposts=@user.microposts.paginate(:page=>params[:page],:per_page=>4)
+    @microposts=@user.microposts
     @title="#{@user.name}"
     session[:deletion_path]=nil
   end

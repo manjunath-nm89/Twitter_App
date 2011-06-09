@@ -6,19 +6,23 @@
   Comment on Tweets
 </p>
 
+<%=render @micropost.parent %>
 
 
-<%=  @micropost.parent_id %>
+
 <%= form_for(@micropost) do |f|  %>
 <%= f.hidden_field :parent_id%>
-<div>
+
+<div style="margin-left: 20px;padding-left: 20px;">
+  <br/>
   <%= f.text_area :content,:cols=>75,:rows=>7%>
 
 </div>
 
  <%=  render "layouts/stats"%>
-
+<div style="margin-left: 20px;padding-left: 20px;">
   <%=  f.submit "Post Tweet",:id=>"tweetbutton" %>
+</div>
 
 <%end%>
 

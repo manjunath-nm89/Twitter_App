@@ -3,7 +3,7 @@
 <%end%>
 <h1 id="introduction">Post Tweet</h1>
 <p>
-  Post your tweets in the Text Box given below, Restrict your tweets to 140 characters.
+  Post your tweets in the Text Box given below.
 </p>
 
 <%= form_for(@micropost) do |f|  %>
@@ -21,4 +21,10 @@
 
 <br/>
  
-<%= render "layouts/feeds" %>
+<%#= render "layouts/feeds" %>
+
+<% if @feed_items.any? %>
+  <%=  nested_feed_posts @feed_items.arrange(:order => :created_at) %>
+<%else%>
+  <b>There are no posts currently in your feed !! </b>
+<%end%>

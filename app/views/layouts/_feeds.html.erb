@@ -1,10 +1,4 @@
-<% if @feed_items.any? %>
-
-  
-
-  <%@feed_items.each do |f|%>
-
-  <div>
+<div>
     <%= image_tag "gravatar.jpg",:height=>50,:width=>50,:class=>"set_middle" %>
     <span style="font-size: 16px;padding-left: 10px;color:#a0a0ff;"><%=link_to f.user.name,f.user,:target=>"_blank"%></span>  -  <%= raw f.content %>
     <span style="float:right">
@@ -13,21 +7,10 @@
       <%end%>
     </span>
   </div>
-  
     <div class="timestamp">
       Posted <%= time_ago_in_words(f.created_at)   %> ago.
     </div>
-    
-    
     <hr/>
-  
-   
-<br/>
-  <%end%>
+    <br/>
+  <%#= will_paginate @feed_items %>
 
-  <%= will_paginate @feed_items %>
-
-  <%else%>
-    <b>There are no posts currently in your feed !! </b>
-
-<%end%>
