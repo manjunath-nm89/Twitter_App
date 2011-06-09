@@ -6,12 +6,12 @@
   Comment on Tweets
 </p>
 
-<%=render @micropost.parent %>
+<%#=render @micropost.parent %>
 
 
 
 <%= form_for(@micropost) do |f|  %>
-<%= f.hidden_field :parent_id%>
+<%= f.hidden_field :parent_id %>
 
 <div style="margin-left: 20px;padding-left: 20px;">
   <br/>

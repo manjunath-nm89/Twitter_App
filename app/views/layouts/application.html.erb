@@ -11,6 +11,13 @@
     <%= javascript_include_tag "scriptaculous.js" %>
 
     <script type="text/javascript" >
+
+      function update_hidden(id)
+      {
+        alert("update hidden-"+id);
+        document.getElementById("textarea-"+id).innerHTML="<textarea cols='75' id='micropost_content' name='micropost[content]' rows='7'></textarea> ";
+        document.getElementById("micropost_parent_id").value=id;
+      }
          tinyMCE.init({
            mode : "textareas",
            theme : "advanced" ,    //(n.b. no trailing comma, this will be critical as you experiment later)

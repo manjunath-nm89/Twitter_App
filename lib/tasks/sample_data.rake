@@ -31,7 +31,7 @@ def make_users
 end
 
 def make_microposts
-  User.all(:limit=>6).each do |user|
+  User.all(:limit=>6, :order => 'id desc').each do |user|
        2.times do
          user.microposts.create!(:content=>Faker::Lorem.sentence(5))
        end
