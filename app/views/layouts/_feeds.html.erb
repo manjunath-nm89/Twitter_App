@@ -2,7 +2,7 @@
     <%= image_tag "gravatar.jpg",:height=>50,:width=>50,:class=>"set_middle" %>
     <span style="font-size: 16px;padding-left: 10px;color:#a0a0ff;"><%=link_to f.user.name,f.user,:target=>"_blank"%></span>  -  <%= raw f.content %>
     <span style="float:right">
-      <%=  link_to "Comment",nil,:onclick=>"update_hidden(#{f.id})",:href=>"#"%>
+      <%=  link_to "Comment",nil,:onclick=>"update_hidden(#{f.id})",:href=>"\#textarea-#{f.id}"%>
       <%if f.user == current_user%>
       | <%= link_to "Delete",f,:method=>:delete,:confirm=>"Are you Sure?",:title=>raw(f.content) %>
       <%end%>
@@ -12,9 +12,12 @@
       Posted <%= time_ago_in_words(f.created_at)   %> ago.
     </div>
     <hr/>
-    <div id="textarea-<%=f.id%>">
-      
-    </div>
+    
     <br/>
+    <div id="textarea-<%=f.id%>" style="display: none" >
+      <b>Post your comment on the editor above</b>
+      <%#*<textarea></textarea>%>
+    </div>
+   <br/>
   <%#= will_paginate @feed_items %>
 
